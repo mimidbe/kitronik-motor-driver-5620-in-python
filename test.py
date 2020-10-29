@@ -9,4 +9,9 @@ while True:
         theBoard.motorOn("motor 2", "reverse", 100)
     if button_b.is_pressed():
         theBoard.motorOff("motor 1")
-        theBoard.motorOff("motor 1")
+        theBoard.motorOff("motor 2")
+	else:
+	    theBoard.motorOff("motor 1", "forward", 50)
+        theBoard.motorOff("motor 2", "forward", 50)
+
+        
