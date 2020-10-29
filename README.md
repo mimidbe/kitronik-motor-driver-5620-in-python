@@ -1,4 +1,4 @@
-# kitronik-motor-driver-5620-in-python
+# kitronik motor driver 5620 in python
 A package in python, for the [Kitronik Motor Driver Board 5620](https://kitronik.co.uk/products/5620-motor-driver-board-for-the-bbc-microbit-v2) for the BBC micro:bit.
 
 
