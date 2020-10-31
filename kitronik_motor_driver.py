@@ -58,13 +58,11 @@ class kitronik_motor_driver:
         elif motor == "motor 2":
                 pin0.write_digital(0)
                 pin16.write_digital(0)
-
-while True:
-    theBoard = kitronik_motor_driver
-    if button_a.is_pressed():
-        theBoard.motorOn("motor 1", "forward", 10)
-        theBoard.motorOn("motor 2", "reverse", 100)
-    if button_b.is_pressed():
-        theBoard.motorOff("motor 1")
-        theBoard.motorOff("motor 1")
+    def motor_brake(self,motor):
+	if motor==KMotor.MOTOR_1:
+		pin8.write_digital(1)
+		pin12.write_digital(1)
+        elif motor == "motor 2":
+		pin0.write_digital(1)
+		pin16.write_digital(1)
 
