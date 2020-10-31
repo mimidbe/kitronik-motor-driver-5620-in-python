@@ -7,7 +7,6 @@ A package in python, for the [Kitronik Motor Driver Board 5620](https://kitronik
 from microbit import *
 import kitronik_motor_driver
 
-
 while True:
     theBoard = kitronik_motor_driver
     if button_a.is_pressed():
