@@ -13,7 +13,7 @@ class kitronik_motor_driver:
 
     # convert 0-100 to 0-1024 (approx) 
     def _convert(self, x):
-        return (1023/100)*x
+        return int((1023/100)*x)
         
     def motorOn(self, motor, dir, speed): 
         # first convert 0-100 to 0-1024 (approx) 
