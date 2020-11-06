@@ -12,7 +12,7 @@ class kitronik_motor_driver:
      * @param speed how fast to spin the motor''' 
 
     # convert 0-100 to 0-1024 (approx) 
-    def _convert(self, x)):
+    def _convert(self, x):
         return (1023/100)*x
         
     def motorOn(self, motor, dir, speed): 
