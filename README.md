@@ -2,6 +2,7 @@
 A package in python, for the [Kitronik Motor Driver Board 5620](https://kitronik.co.uk/products/5620-motor-driver-board-for-the-bbc-microbit-v2) for the BBC micro:bit.
 
 ![logo](https://github.com/mimidbe/kitronik-motor-driver-5620-in-python/blob/main/images/circuit.png?v=4&s=100) ![logo](https://github.com/mimidbe/kitronik-motor-driver-5620-in-python/blob/main/images/circuit1.jpg)
+<img src="https://github.com/mimidbe/kitronik-motor-driver-5620-in-python/blob/main/images/circuit.png" width="400" height="790">
 
 
 ## Code Example
