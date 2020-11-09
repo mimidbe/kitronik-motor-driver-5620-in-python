@@ -1,6 +1,6 @@
 from microbit import pin0,pin8,pin12,pin16
 
-class kitronik_motor_driver: 
+class KitronikMotorDriver: 
   '''*************************************************************************************************
      * micro:bit motor driver blocks 
      *************************************************************************************************
@@ -12,12 +12,12 @@ class kitronik_motor_driver:
      * @param speed how fast to spin the motor''' 
 
     # convert 0-100 to 0-1024 (approx) 
-    def _convert(self, x):
+    def __convert(self, x):
         return int((1023/100)*x)
         
     def motorOn(self, motor, dir, speed): 
         # first convert 0-100 to 0-1024 (approx) 
-        OutputVal = self._convert(speed)
+        OutputVal = self.__convert(speed)
 
         if motor == "motor 1":  # Motor 1 uses Pins 8 and 12
             if dir == "forward":
