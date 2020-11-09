@@ -9,7 +9,7 @@ A package in python, for the [Kitronik Motor Driver Board 5620](https://kitronik
 from microbit import *
 import kitronik_motor_driver
 
-theBoard = kitronik_motor_driver()
+theBoard = KMotor()
 
 while True:
     if button_a.is_pressed():
