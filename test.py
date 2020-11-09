@@ -1,7 +1,7 @@
 from microbit import *
 import kitronik_motor_driver
 
-theBoard = kitronik_motor_driver()
+theBoard = KitronikMotorDriver()
 
 while True:
     if button_a.is_pressed():
