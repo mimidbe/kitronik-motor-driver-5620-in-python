@@ -1,15 +1,20 @@
 from microbit import pin0,pin8,pin12,pin16
 
-class KitronikMotorDriver: 
-  '''*************************************************************************************************
-     * micro:bit motor driver blocks 
-     *************************************************************************************************
-    Note that Forward and reverse are slightly arbitrary, as it depends on how the motor is wired...
-     * Turns on motor specified by eMotors in the direction specified
-     * by eDirection, at the requested speed 
-     * @param motor which motor to turn on
-     * @param dir   which direction to go
-     * @param speed how fast to spin the motor''' 
+class KMotor: 
+  '''*************************
+     * motor driver  
+     *************************
+    Note that Forward and reverse are slightly arbitrary, 
+    as it depends on how the motor is wired...
+    Turns on motor specified by eMotors in the direction specified
+    by eDirection, at the requested speed 
+    Args:
+     *  motor which motor to turn on
+     *  dir   which direction to go
+     *  speed how fast to spin the motor
+     Usage:
+       
+       ''' 
 
     # convert 0-100 to 0-1024 (approx) 
     def __convert(self, x):
@@ -51,5 +56,44 @@ class KitronikMotorDriver:
 		pin12.write_digital(1)
         elif motor == "motor 2":
 		pin0.write_digital(1)
-		pin16.write_digital(1)
+		pin16.write_digital(1)		
+		
+class KServo:
+    """***********************
+     * servo driver  
+     *************************
+    Args:
+        * pin (pin0 .. pin3): The pin where servo is connected.
+        * freq (int): The frequency of the signal, in hertz.
+        * min_us (int): The minimum signal length supported by the servo.
+        * max_us (int): The maximum signal length supported by the servo.
+        * angle (int): The angle between minimum and maximum positions.
+    Usage:
+        SG90 @ 3.3v servo connected to pin0
+	sv1 = Servo(pin0)
+        sv1.write_angle(50) # turn servo to 50 degrees 
+    """
+
+    def __init__(self, pin, freq=50, min_us=600, max_us=2400, angle=180):
+        self.min_us = min_us
+        self.max_us = max_us
+        self.us = 0
+        self.freq = freq
+        self.angle = angle
+        self.analog_period = 0
+        self.pin = pin
+        analog_period = round((1/self.freq) * 1000)  # hertz to miliseconds
+        self.pin.set_analog_period(analog_period)
+
+    def write_us(self, us):
+        us = min(self.max_us, max(self.min_us, us))
+        duty = round(us * 1024 * self.freq // 1000000)
+        self.pin.write_analog(duty)
+        self.pin.write_digital(0)  # turn the pin off
+
+    def write_angle(self, degrees=None):
+        degrees = degrees % 360
+        total_range = self.max_us - self.min_us
+        us = self.min_us + total_range * degrees // self.angle
+        self.write_us(us)
 
