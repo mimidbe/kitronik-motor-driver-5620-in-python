@@ -9,11 +9,12 @@ class KMotor:
     Turns on motor specified by eMotors in the direction specified
     by eDirection, at the requested speed 
     Args:
-     *  motor which motor to turn on
-     *  dir   which direction to go
-     *  speed how fast to spin the motor
-     Usage:
-       
+       * motor which motor to turn on
+       * dir   which direction to go
+       * speed how fast to spin the motor
+    Usage:
+      Mot1 = Kmotor()
+      Mot1.motorOn("motor 1", "forward", 10) 
        ''' 
 
     # convert 0-100 to 0-1024 (approx) 
@@ -63,14 +64,14 @@ class KServo:
      * servo driver  
      *************************
     Args:
-        * pin (pin0 .. pin3): The pin where servo is connected.
+        * pin (pin0,pin16,pin8,pin12): The pin where servo is connected.
         * freq (int): The frequency of the signal, in hertz.
         * min_us (int): The minimum signal length supported by the servo.
         * max_us (int): The maximum signal length supported by the servo.
         * angle (int): The angle between minimum and maximum positions.
     Usage:
         SG90 @ 3.3v servo connected to pin0
-	sv1 = Servo(pin0)
+	sv1 = KServo(pin0)
         sv1.write_angle(50) # turn servo to 50 degrees 
     """
 
