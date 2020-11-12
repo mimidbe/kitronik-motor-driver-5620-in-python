@@ -86,15 +86,15 @@ class KServo:
         analog_period = round((1/self.freq) * 1000)  # hertz to miliseconds
         self.pin.set_analog_period(analog_period)
 
-    def write_us(self, us):
+    def __write_us(self, us):
         us = min(self.max_us, max(self.min_us, us))
         duty = round(us * 1024 * self.freq // 1000000)
         self.pin.write_analog(duty)
         self.pin.write_digital(0)  # turn the pin off
 
-    def write_angle(self, degrees=None):
+    def writeAngle(self, degrees=None):
         degrees = degrees % 360
         total_range = self.max_us - self.min_us
         us = self.min_us + total_range * degrees // self.angle
-        self.write_us(us)
+        self.__write_us(us)
 
