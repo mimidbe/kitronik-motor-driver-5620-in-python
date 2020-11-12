@@ -33,7 +33,7 @@ while True:
     if button_a.is_pressed():
         sv1.write_angle(50) # turn servo to 50 degrees 
     elif button_b.is_pressed():
-        sv1.write_angle(0) # turn servo to 50 degrees         
+        sv1.write_angle(0) # return servo to 0 degrees         
 ```
 
 
