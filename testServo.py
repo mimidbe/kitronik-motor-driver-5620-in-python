@@ -1,5 +1,5 @@
 from microbit import *
-import kitronik_motor_driver
+from kitronik_motor_driver import *
 
 sv1 = KServo(pin0)
 while True:
