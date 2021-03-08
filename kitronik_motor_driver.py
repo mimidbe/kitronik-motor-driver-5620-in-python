@@ -90,6 +90,7 @@ class KServo:
         us = min(self.max_us, max(self.min_us, us))
         duty = round(us * 1024 * self.freq // 1000000)
         self.pin.write_analog(duty)
+	sleep(100)
         self.pin.write_digital(0)  # turn the pin off
 
     def writeAngle(self, degrees=None):
