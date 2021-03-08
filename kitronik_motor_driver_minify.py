@@ -18,6 +18,6 @@ class KMotor:
 		if D==F:E.write_digital(1);B.write_digital(1)
 		elif D==G:A.write_digital(1);C.write_digital(1)
 class KServo:
-	def __init__(self,pin,freq=50,min_us=600,max_us=2400,angle=180):self.min_us=min_us;self.max_us=max_us;self.us=0;self.freq=freq;self.angle=angle;self.pin=pin;B=D(1/self.freq*1000);self.pin.set_analog_period(B)
+	def __init__(self,pin,freq=50,min_us=600,max_us=2400,angle=180):self.min_us=min_us;self.max_us=max_us;self.us=0;self.freq=freq;self.angle=angle;self.pin=pin;B=round(1/self.freq*1000);self.pin.set_analog_period(B)
 	def __write_us(self,us):us=min(self.max_us,max(self.min_us,us));B=round(us*1024*self.freq//1000000);self.pin.write_analog(B);sleep(100);self.pin.write_digital(0)
-	def writeAngle(self,degrees=None):B=degrees;B=B%360;C=self.max_us-self.min_us;D=A.min_us+C*B//self.angle;self.__write_us(D)
+	def writeAngle(self,degrees=None):B=degrees%360;C=self.max_us-self.min_us;D=self.min_us+C*B//self.angle;self.__write_us(D)
