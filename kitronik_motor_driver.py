@@ -19,7 +19,7 @@ class KMotor:
 
     # convert 0-100 to 0-1024 (approx) 
     def __convert(self, x):
-        return int((1023/100)*x)
+        return (1023*x)//100
         
     def motorOn(self, motor, dir, speed): 
         # first convert 0-100 to 0-1024 (approx) 
