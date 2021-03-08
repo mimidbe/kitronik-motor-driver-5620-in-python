@@ -1,8 +1,7 @@
 from microbit import *
-import kitronik_motor_driver
+from kitronik_motor_driver import *
 
 theBoard = KMotor()
-
 while True:
     if button_a.is_pressed():
         theBoard.motorOn("motor 1", "forward", 10)
