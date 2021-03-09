@@ -7,7 +7,7 @@ A package in python, for the [Kitronik Motor Driver Board 5620](https://kitronik
 ## Code Example
 ```Python
 from microbit import *
-import kitronik_motor_driver
+from kitronik_motor_driver import *
 
 theBoard = KMotor()
 
@@ -21,12 +21,13 @@ while True:
     else:
 	theBoard.motorOn("motor 1", "forward", 50)
         theBoard.motorOn("motor 2", "forward", 50)
+	
 ```
 
 ## Code Example
 ```Python
 from microbit import *
-import kitronik_motor_driver
+from kitronik_motor_driver import *
 
 sv1 = KServo(pin0)
 while True:
