@@ -4,7 +4,7 @@ A package in python, for the [Kitronik Motor Driver Board 5620](https://kitronik
 ![logo](https://github.com/mimidbe/kitronik-motor-driver-5620-in-python/blob/main/images/circuit.png)    ![logo](https://github.com/mimidbe/kitronik-motor-driver-5620-in-python/blob/main/images/circuit1.jpg)
 
 
-## Code Example
+## Code Example for using motors
 ```Python
 from microbit import *
 from kitronik_motor_driver import *
@@ -24,7 +24,7 @@ while True:
 	
 ```
 
-## Code Example
+## Code Example for using servos
 ```Python
 from microbit import *
 from kitronik_motor_driver import *
